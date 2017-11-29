@@ -21,10 +21,10 @@ namespace USB
             string volumes = "";
             for (int i = 0; i < device.Volumes.Count; i++)
             {
-                volumes += "Name:" + device.Volumes[i].Name + "\n" +
-                    "Total: " + device.Volumes[i].Total / BytesInMegabyte + " MB\n" +
+                volumes += "Name:" + device.Volumes[i].Name + "\n";
+                volumes += device.Volumes[i].Total != 0 ? "Total: " + device.Volumes[i].Total / BytesInMegabyte + " MB\n" +
                      "Free: " + device.Volumes[i].Free / BytesInMegabyte + " MB\n" +
-                         "Used: " + device.Volumes[i].Used / BytesInMegabyte + " MB\n";
+                     "Used: " + device.Volumes[i].Used / BytesInMegabyte + " MB\n" : "------------\n";
             }
             return volumes;
         }
